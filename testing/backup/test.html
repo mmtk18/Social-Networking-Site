@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<style>
+		body {
+			padding-top: 70px;
+			margin: 0;
+		}
+
+		#search-box {
+			min-width: 500px;
+		}
+
+		#notify-button {
+			width: 30px;
+			align-content: center;
+			/* color: rgb(221, 231, 77); */
+		}
+
+		#notify-dropdown {
+			width: 50px;
+		}
+
+		.column1 {
+			float: left;
+			width: 25%;
+			padding: 10px;
+			height: 300px;
+			/* Should be removed. Only for demonstration */
+		}
+
+		.column2 {
+			float: left;
+			width: 50%;
+			padding: 10px;
+			height: 300px;
+			/* Should be removed. Only for demonstration */
+		}
+
+		.column3 {
+			float: left;
+			width: 25%;
+			padding: 10px;
+			height: 300px;
+			/* Should be removed. Only for demonstration */
+		}
+
+		/* Clear floats after the columns */
+
+		/* .row:after {
+			margin-right: 0px;
+			display: table;
+			clear: both;
+			overflow-x: hidden;
+			width: 100%;
+		} */
+
+		.row {
+			margin-right: 0px;
+		}
+
+		.panel {
+			background-color: rgb(212, 212, 212);
+		}
+
+		#chat_affect .mytext {
+			border: 0;
+			padding: 10px;
+			background: whitesmoke;
+		}
+
+		.fa-heart {
+			color: red;
+		}
+
+		#chat_affect .text {
+			width: 75%;
+			display: flex;
+			flex-direction: column;
+		}
+
+		#chat_affect .text>p:first-of-type {
+			width: 100%;
+			margin-top: 0;
+			margin-bottom: auto;
+			line-height: 13px;
+			font-size: 12px;
+		}
+
+		#chat_affect .text>p:last-of-type {
+			width: 100%;
+			text-align: right;
+			color: silver;
+			margin-bottom: -7px;
+			margin-top: auto;
+		}
+
+		#chat_affect .text-l {
+			float: left;
+			padding-right: 10px;
+		}
+
+		#chat_affect .text-r {
+			float: right;
+			padding-left: 10px;
+		}
+
+		#chat_affect .avatar {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 25%;
+			float: left;
+			padding-right: 10px;
+		}
+
+		#chat_affect .macro {
+			margin-top: 5px;
+			width: 95%;
+			border-radius: 5px;
+			padding: 5px;
+			display: flex;
+		}
+
+		#chat_affect .msj-rta {
+			float: right;
+			background: whitesmoke;
+		}
+
+		#chat_affect .msj {
+			float: left;
+			background: rgb(255, 243, 174);
+		}
+
+		#chat_affect .frame {
+			background: #e0e0de;
+			height: 450px;
+			overflow: hidden;
+			padding: 0;
+		}
+
+		#chat_affect .frame>div:last-of-type {
+			position: absolute;
+			bottom: 5px;
+			width: 100%;
+			display: flex;
+		}
+
+		#chat_affect ul {
+			width: 250px;
+			list-style-type: none;
+			padding: 10px 18px 18px 18px;
+			position: absolute;
+			bottom: 32px;
+			display: flex;
+			flex-direction: column;
+			margin-bottom: 30px;
+		}
+
+		#chat_affect .msj:before {
+			width: 0;
+			height: 0;
+			content: "";
+			top: -5px;
+			left: -14px;
+			position: relative;
+			border-style: solid;
+			border-width: 0 13px 13px 0;
+			border-color: transparent #ffffff transparent transparent;
+		}
+
+		#chat_affect .msj-rta:after {
+			width: 0;
+			height: 0;
+			content: "";
+			top: -5px;
+			left: 14px;
+			position: relative;
+			border-style: solid;
+			border-width: 13px 13px 0 0;
+			border-color: whitesmoke transparent transparent transparent;
+		}
+
+		#chat_affect input:focus {
+			outline: none;
+		}
+
+		::-webkit-input-placeholder {
+			/* Chrome/Opera/Safari */
+			color: #d4d4d4;
+		}
+
+		::-moz-placeholder {
+			/* Firefox 19+ */
+			color: #d4d4d4;
+		}
+
+		:-ms-input-placeholder {
+			/* IE 10+ */
+			color: #d4d4d4;
+		}
+
+		:-moz-placeholder {
+			/* Firefox 18- */
+			color: #d4d4d4;
+		}
+	</style>
+	<link rel="stylesheet" href="./test.css">
+
+</head>
+
+<body>
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+				 aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">Outer Join</a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+				<form class="navbar-form navbar-left">
+					<div class="form-group">
+						<input type="text" class="form-control" id="search-box" placeholder="Search">
+					</div>
+					<button type="submit" class="btn btn-default">Submit</button>
+				</form>
+				<ul class="nav navbar-nav navbar-right">
+					<li class="dropdown" id="notify-dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+							<span id="notify-button" class="glyphicon glyphicon-info-sign"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li>
+								<a href="#">Action is a</a>
+							</li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+							Welcome Surya
+							<span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li>
+								<a href="#">
+									<span id="notify-button" class="glyphicon glyphicon-cog"></span>Update Settings</a>
+							</li>
+							<li>
+								<a href="#">
+									<span id="notify-button" class="glyphicon glyphicon-log-out"></span>logout</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<!-- /.navbar-collapse -->
+		</div>
+		<!-- /.container-fluid -->
+	</nav>
+
+
+	<div class="row container-fluid">
+		<div class="col-sm-3">
+			<h2>Column 1</h2>
+			<p>Some text..</p>
+			<div class="row">
+				<div class="col-sm-8">
+					<img class="img-responsive img-circle" src="../../images/skeleton_logo.png" alt="Chania">
+				</div>
+			</div>
+			<p>Some text..</p>
+			<p>Some text..</p>
+			<p>Some text..</p>
+		</div>
+		<div class="col-sm-6">
+			<h2>Column 2</h2>
+			<p>Some text..</p>
+
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<div class="media">
+						<div class="media-left">
+							<img src="img_avatar1.png" class="media-object" style="width:45px">
+						</div>
+						<div class="media-body">
+							<h4 class="media-heading">John Doe
+								<small>
+									<i>Posted on February 19, 2016</i>
+								</small>
+							</h4>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+								aliqua.
+							</p>
+							<i onclick="myFunction(this)" class="fa fa-thumbs-o-up btn btn-primary"> Like</i>
+
+							<!-- Nested media object -->
+							<div class="media">
+								<div class="media-left">
+									<img src="img_avatar2.png" class="media-object" style="width:45px">
+								</div>
+								<div class="media-body">
+									<h4 class="media-heading">John Doe
+										<small>
+											<i>Posted on February 20, 2016</i>
+										</small>
+									</h4>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+										aliqua.
+									</p>
+								</div>
+
+								<!-- Nested media object -->
+								<div class="media">
+									<div class="media-left">
+										<img src="img_avatar4.png" class="media-object" style="width:45px">
+									</div>
+									<div class="media-body">
+										<h4 class="media-heading">Jane Doe
+											<small>
+												<i>Posted on February 20, 2016</i>
+											</small>
+										</h4>
+										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+											aliqua.
+										</p>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<div class="media">
+						<div class="media-left">
+							<img src="img_avatar1.png" class="media-object" style="width:45px">
+						</div>
+						<div class="media-body">
+							<h4 class="media-heading">John Doe
+								<small>
+									<i>Posted on February 19, 2016</i>
+								</small>
+							</h4>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+								aliqua.
+							</p>
+							<i onclick="myFunction(this)" class="fa fa-thumbs-o-up btn btn-primary"> Like</i>
+
+							<!-- Nested media object -->
+							<div class="media">
+								<div class="media-left">
+									<img src="img_avatar2.png" class="media-object" style="width:45px">
+								</div>
+								<div class="media-body">
+									<h4 class="media-heading">John Doe
+										<small>
+											<i>Posted on February 20, 2016</i>
+										</small>
+									</h4>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+										aliqua.
+									</p>
+								</div>
+
+								<!-- Nested media object -->
+								<div class="media">
+									<div class="media-left">
+										<img src="img_avatar4.png" class="media-object" style="width:45px">
+									</div>
+									<div class="media-body">
+										<h4 class="media-heading">Jane Doe
+											<small>
+												<i>Posted on February 20, 2016</i>
+											</small>
+										</h4>
+										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+											aliqua.
+										</p>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<div class="media">
+						<div class="media-left">
+							<img src="img_avatar1.png" class="media-object" style="width:45px">
+						</div>
+						<div class="media-body">
+							<h4 class="media-heading">John Doe
+								<small>
+									<i>Posted on February 19, 2016</i>
+								</small>
+							</h4>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+								aliqua.
+							</p>
+							<i onclick="myFunction(this)" class="fa fa-thumbs-o-up btn btn-primary"> Like</i>
+
+							<!-- Nested media object -->
+							<div class="media">
+								<div class="media-left">
+									<img src="img_avatar2.png" class="media-object" style="width:45px">
+								</div>
+								<div class="media-body">
+									<h4 class="media-heading">John Doe
+										<small>
+											<i>Posted on February 20, 2016</i>
+										</small>
+									</h4>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+										aliqua.
+									</p>
+								</div>
+
+								<!-- Nested media object -->
+								<div class="media">
+									<div class="media-left">
+										<img src="img_avatar4.png" class="media-object" style="width:45px">
+									</div>
+									<div class="media-body">
+										<h4 class="media-heading">Jane Doe
+											<small>
+												<i>Posted on February 20, 2016</i>
+											</small>
+										</h4>
+										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+											aliqua.
+										</p>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+
+			<!-- Nested media object -->
+			<!-- <div class="media">
+					<div class="media-left">
+						<img src="img_avatar5.png" class="media-object" style="width:45px">
+					</div>
+					<div class="media-body">
+						<h4 class="media-heading">Jane Doe
+							<small>
+								<i>Posted on February 19, 2016</i>
+							</small>
+						</h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+							aliqua.
+						</p>
+					</div>
+				</div> -->
+
+
+		</div>
+		<div class="col-sm-3 visible-lg">
+			<h2>Group Chat</h2>
+			<p>Your chat is visible to all the members</p>
+			<div id="chat_affect">
+				<ul style="width: 280px; height: 300px; overflow: auto" id="chat_scroll"></ul>
+				<div>
+					<div class="msj-rta macro" style="margin:350px 24px auto auto">
+						<div class="text text-r" style="background:whitesmoke !important">
+							<input class="mytext" placeholder="Type a message" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+	<script>
+		function myFunction(x) {
+			x.classList.toggle("fa-thumbs-up");
+		}
+
+		var me = {};
+
+		var you = {};
+
+		function formatAMPM(date) {
+			var hours = date.getHours();
+			var minutes = date.getMinutes();
+			var ampm = hours >= 12 ? 'PM' : 'AM';
+			hours = hours % 12;
+			hours = hours ? hours : 12; // the hour '0' should be '12'
+			minutes = minutes < 10 ? '0' + minutes : minutes;
+			var strTime = hours + ':' + minutes + ' ' + ampm;
+			return strTime;
+		}
+
+		//-- No use time. It is a javaScript effect.
+		function insertChat(who, text, speaker, time = 0) {
+			var control = "";
+			var date = formatAMPM(new Date());
+
+			if (who == "me") {
+
+				control = '<li style="width:100%" tabindex="1">' +
+					'<div class="msj macro">' +
+					'<div class="text text-l">' +
+					'<p><b>' + speaker + '</b><br>' + text + '</p>' +
+					'<p><small>' + date + '</small></p>' +
+					'</div>' +
+					'</div>' +
+					'</li>';
+
+
+			} else {
+				control = '<li style="width:100%;" tabindex="1">' +
+					'<div class="msj-rta macro">' +
+					'<div class="text text-r">' +
+					'<p><b>' + speaker + '</b><br>' + text + '</p>' +
+					'<p><small>' + date + '</small></p>' +
+					'</div>' +
+					'<div class="avatar" style="padding:0px 0px 0px 10px !important"></div>' +
+					'</li>';
+
+				//$('#chat_scroll').scrollTop($('#chat_scroll')[0].scrollHeight);
+			}
+			setTimeout(
+				function () {
+					$("#chat_scroll").append(control);
+					$('#chat_scroll').scrollTop($('#chat_scroll')[0].scrollHeight);
+				}, time);
+
+		}
+
+		function resetChat() {
+			$("#chat_scroll").empty();
+		}
+
+		$(".mytext").on("keyup", function (e) {
+			if (e.which == 13) {
+				var text = $(this).val();
+				if (text !== "") {
+					insertChat("me", text);
+					$(this).val('');
+				}
+			}
+		});
+
+		//-- Clear Chat
+		resetChat();
+
+		//-- Print Messages
+		insertChat("me", "Hello Tom...", "Spaceman", 0);
+		insertChat("you", "Hi, Pablo", "Spaceman", 1500);
+		insertChat("me", "What would you like to talk about today?", "Spaceman", 3500);
+		insertChat("you", "Tell me a joke", "Spaceman", 7000);
+		insertChat("me", "Spaceman: Computer! Computer! Do we bring battery?!", "Spaceman", 9500);
+		insertChat("you", "LOL", "Spaceman", 12000);
+		insertChat("you", "LOL", "Spaceman", 12000);
+		insertChat("you", "LOL", "Spaceman", 12000);
+		insertChat("you", "LOL", "Spaceman", 12000);
+
+
+//-- NOTE: No use time on insertChat.
+
+	</script>
+</body>
+
+</html>

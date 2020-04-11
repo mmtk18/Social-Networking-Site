@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="signup.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <style>
+        #rememberme-0 {
+            margin-left: 0px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Button trigger modal -->
+
+    <div class="container">
+        <hr class="prettyline">
+        <br>
+        <center>
+            <h1>
+                <b>Welcome to Outer Join</b>
+            </h1>
+            <h3>You need to sign in or register for this service</h3>
+            <br>
+            <button class="btn btn-primary btn-lg" href="#signup" data-toggle="modal" data-target=".bs-modal-sm">Sign In/Register</button>
+        </center>
+        <br>
+        <hr class="prettyline">
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade bs-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <br>
+                <div class="bs-example bs-example-tabs">
+                    <ul id="myTab" class="nav nav-tabs">
+                        <li class="active">
+                            <a href="#signin" data-toggle="tab">Sign In</a>
+                        </li>
+                        <li class="">
+                            <a href="#signup" data-toggle="tab">Register</a>
+                        </li>
+                        <!-- <li class="">
+                            <a href="#why" data-toggle="tab">Why?</a>
+                        </li> -->
+                    </ul>
+                </div>
+                <div class="modal-body">
+                    <div id="myTabContent" class="tab-content">
+                        <!-- <div class="tab-pane fade in" id="why">
+                            <p>We need this information so that you can receive access to the site and its content. Rest assured
+                                your information will not be sold, traded, or given to anyone.</p>
+                            <p></p>
+                            <br> Please contact
+                            <a mailto:href="JoeSixPack@Sixpacksrus.com"></a>JoeSixPack@Sixpacksrus.com</a> for any other inquiries.</p>
+                        </div> -->
+                        <div class="tab-pane fade active in" id="signin">
+                            <form class="form-horizontal">
+                                <fieldset>
+                                    <!-- Sign In Form -->
+                                    <!-- Text input-->
+                                    <div class="control-group">
+                                        <label class="control-label" for="userid">Alias:</label>
+                                        <div class="controls">
+                                            <input required="" id="userid" name="userid" type="text" class="form-control" placeholder="JoeSixpack" class="input-medium"
+                                                required="">
+                                        </div>
+                                    </div>
+
+                                    <!-- Password input-->
+                                    <div class="control-group">
+                                        <label class="control-label" for="passwordinput">Password:</label>
+                                        <div class="controls">
+                                            <input required="" id="passwordinput" name="passwordinput" class="form-control" type="password" placeholder="********" class="input-medium">
+                                        </div>
+                                    </div>
+
+                                    <!-- Multiple Checkboxes (inline) -->
+                                   <!--  <div class="control-group">
+                                        <label class="control-label" for="rememberme"></label>
+                                        <div class="controls">
+                                            <label class="checkbox inline" for="rememberme-0">
+                                                <input type="checkbox" name="rememberme" id="rememberme-0" value="Remember me">
+                                                <p>
+                                                    <br> Remember me</p>
+                                            </label>
+                                        </div>
+                                    </div> -->
+
+                                    <!-- Button -->
+                                    <div class="control-group">
+                                        <label class="control-label" for="signin"></label>
+                                        <div class="controls">
+                                            <button id="signin" name="signin" class="btn btn-success">Sign In</button>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                        <div class="tab-pane fade" id="signup">
+                            <form class="form-horizontal">
+                                <fieldset>
+                                    <!-- Sign Up Form -->
+                                    <!-- Text input-->
+                                    <div class="control-group">
+                                        <label class="control-label" for="Email">Email:</label>
+                                        <div class="controls">
+                                            <input id="Email" name="Email" class="form-control" type="text" placeholder="xyz@abc.com" class="input-large" required="">
+                                        </div>
+                                    </div>
+
+                                    <!-- Text input-->
+                                    <div class="control-group">
+                                        <label class="control-label" for="userid">Name:</label>
+                                        <div class="controls">
+                                            <input id="userid" name="userid" class="form-control" type="text" placeholder="xyz" class="input-large" required="">
+                                        </div>
+                                    </div>
+
+                                    <!-- Password input-->
+                                    <div class="control-group">
+                                        <label class="control-label" for="password">Password:</label>
+                                        <div class="controls">
+                                            <input id="password" name="password" class="form-control" type="password" placeholder="********" class="input-large" required="">
+                                            <em>1-8 Characters</em>
+                                        </div>
+                                    </div>
+
+                                    <!-- Text input-->
+                                    <div class="control-group">
+                                        <label class="control-label" for="reenterpassword">Re-Enter Password:</label>
+                                        <div class="controls">
+                                            <input id="reenterpassword" class="form-control" name="reenterpassword" type="password" placeholder="********" class="input-large"
+                                                required="">
+                                        </div>
+                                    </div>
+
+                                    <!-- Multiple Radios (inline) -->
+                                    <!--  <br>
+                                    <div class="control-group">
+                                        <label class="control-label" for="humancheck">Humanity Check:</label>
+                                        <div class="controls">
+                                            <label class="radio inline" for="humancheck-0">
+                                                <input type="radio" name="humancheck" id="humancheck-0" value="robot" checked="checked">I'm a Robot</label>
+                                            <label class="radio inline" for="humancheck-1">
+                                                <input type="radio" name="humancheck" id="humancheck-1" value="human">I'm Human</label>
+                                        </div>
+                                    </div> -->
+
+                                    <div class="control-group">
+                                        <label class="control-label" for="sel1">Select Gender:</label>
+                                        <select class="form-control" id="sel1">
+                                            <option>Male</option>
+                                            <option>Female</option>
+                                            <option>Other</option>
+                                            <option>Prefer not to say</option>
+                                        </select>
+                                    </div>
+
+                                    <!-- <div class="control-group">
+                                        <div class='input-group date' id='datetimepicker8'>
+                                            <label class="control-label">Select Date:</label>
+                                            <input type='text' class="form-control" />
+                                            <span class="input-group-addon">
+                                                <span class="fa fa-calendar">
+                                                </span>
+                                            </span>
+                                        </div>
+                                    </div> -->
+
+                                    <div class="control-group">
+                                        <label class="control-label" for="reenterpassword">Enter Birthday:</label>
+                                        <div class="controls">
+                                          <!--   <label class="control-label">Date: -->
+                                                <input type="text" id="datepicker" class="form-control">
+                                           <!--  </label> -->
+                                        </div>
+                                    </div>
+
+
+
+                                    <!-- Button -->
+                                    <div class="control-group">
+                                        <label class="control-label" for="confirmsignup"></label>
+                                        <div class="controls">
+                                            <button id="confirmsignup" name="confirmsignup" class="btn btn-success">Sign Up</button>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <center>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script>
+        $(function () {
+            $('#datetimepicker8').datetimepicker({
+                icons: {
+                    time: "fa fa-clock-o",
+                    date: "fa fa-calendar",
+                    up: "fa fa-arrow-up",
+                    down: "fa fa-arrow-down"
+                }
+            });
+        });
+
+        $(function () {
+            $("#datepicker").datepicker();
+        });
+
+    </script>
+
+</body>
+
+</html>

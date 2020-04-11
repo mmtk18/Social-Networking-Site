@@ -1,0 +1,71 @@
+{
+    // "_id": "Mongodb generated id",
+    // "name": "Surya Prasath",
+    // "email": "surya3997@gmail.com",
+    // "password": "hashed password",
+    // "gender": "Male",
+    // "birthday": "1997-09-03",
+    // "registered": "2017-09-03T16:30:00",
+    // "secret_quote": {
+    //     "question_1": "What is your pets name?",
+    //     "answer_1": "Tom",
+    //     "question_2": "What's your mother tongue?",
+    //     "answer_2": "Telugu"
+    // },
+    // "user_info": {
+    //     "school": "ssv hr sec",
+    //     "college": "PSG tech",
+    //     "relationship_status": "single",
+    //     "mobile": "9791745977",
+    //     "mobile_visibility": "public",
+    //     "website": "www.surya3997.ml",
+    //     "connector_id": "www.outerjoin.com/surya3997",
+    //     "home_town": "coimbatore",
+    //     "current_city": "cbe",
+    //     "Job": "None"
+    // },
+    "user_cover_pic": ["pic1.jpg", "pic2.jpg", "pic3.jpg"],
+    "user_profile_pic": ["ppic1.jpg", "ppic2.jpg", "ppic3.jpg"],
+    // "notification": [{
+    //     "notify_txt": "You have signed in",
+    //     "notify_time": "2017-10-03T16:30:00",
+    //     "seen": 1
+    // }, {
+    //     "notify_txt": "Guru accepted your friend request",
+    //     "notify_time": "2017-10-03T17:30:00",
+    //     "seen": 0
+    // }],
+    // "user_status": 1,
+    // "user_post": [{
+    //     "post_txt": "This is my first post!",
+    //     "post_pic": "post_pic1.png",
+    //     "post_time": "2017-10-03T17:40:00",
+    //     "visibility": "friends",
+    //     "likes": ["Other user_id1", "Other user_id2", "Other user_id3"],
+    //     "comments": [{
+    //         "commenter_name": "user_name",
+    //         "commenter": "user_id",
+    //         "comment_txt": "nice",
+    //         "time": "2017-10-03T17:30:00"
+    //     }, {
+    //         "commenter": "user_id2",
+    //         "commenter_name": "user_name",
+    //         "comment_txt": "great",
+    //         "time": "2017-10-03T17:35:00"
+    //     }]
+    // }],
+    // "friends": [{"mongodb_object_id1": "friend"}, {"mongodb_object_id2": "waiting for approval"}, {"mongodb_object_id2": "gave request"}],
+    // "feedback": [{
+    //     "feedback_txt": "Nice work to crete this!",
+    //     "star": 5,
+    //     "time": "2017-10-03T17:45:00"
+    // }],
+    // "warning": [{
+    //     "warning_txt": "You are about to be blocked",
+    //     "seen": 0
+    // }],
+    "group_chat": [{
+        "chat_text": "This is my first messsage!",
+        "time": "2017-10-03T17:50:00"
+    }]
+}
